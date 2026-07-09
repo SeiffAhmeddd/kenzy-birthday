@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Happy Birthday!</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Caveat for handwritten notes, Kalam for casual text -->
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@400;700&family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- GSAP & Plugins -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+</head>
+<body>
+    <!-- Music Player -->
+    <div class="music-player" id="music-player">
+        <div class="cd-disc">
+            <div class="cd-label"></div>
+        </div>
+        <audio id="bg-music" loop autoplay>
+            <source src="birthday song.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <!-- Main Container - 400px width limit -->
+    <div class="app-container">
+        
+        <!-- Scrolling Banner -->
+        <div class="birthday-banner">
+            <div class="banner-track">
+                <span>HAPPY BIRTHDAY KENZY ! 💗</span>
+            </div>
+        </div>
+
+        <!-- SECTION 1 — Letter Opening + Scrapbook Page -->
+        <section class="section section-1" id="section-1">
+            <div class="collage-item polaroid-bg" id="s1-polaroid">
+                <img src="Seif/WhatsApp%20Image%202026-03-28%20at%201.28.34%20AM.jpeg" alt="Bg Photo">
+            </div>
+            
+            <div class="collage-item camera-sticker" id="s1-camera">📷</div>
+            <div class="collage-item heart-sticker" id="s1-heart1">❤️</div>
+            <div class="collage-item heart-sticker" id="s1-heart2">💖</div>
+
+            <!-- Floating Emojis -->
+            <div class="collage-item s1-emoji" id="s1-emoji-1">🥳</div>
+            <div class="collage-item s1-emoji" id="s1-emoji-2">✨</div>
+            <div class="collage-item s1-emoji" id="s1-emoji-3">🎁</div>
+            <div class="collage-item s1-emoji" id="s1-emoji-4">💖</div>
+            <div class="collage-item s1-emoji" id="s1-emoji-5">🧁</div>
+
+            <!-- Envelope: sits on top of the letter initially (higher z-index) -->
+            <div class="envelope-wrapper" id="s1-envelope-wrapper">
+                <div class="envelope" id="s1-envelope">
+                    <div class="envelope-flap" id="s1-flap"></div>
+                    <div class="envelope-body">
+                        <div class="wax-seal" id="s1-seal">♥</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Letter: sibling of envelope-wrapper, starts behind it (lower z-index) -->
+            <div class="letter" id="s1-letter">
+                <div class="letter-inner">
+                    <p class="letter-greeting">Happy Birthday 🎂</p>
+                    <p class="letter-text" id="s1-text"></p>
+                    <p class="letter-sign">With love ❤️</p>
+                </div>
+            </div>
+            
+            <div class="scroll-hint">scroll down &darr;</div>
+        </section>
+
+        <!-- SECTION 2 — Memories Section (Scrapbook Spread) -->
+        <section class="section section-2" id="section-2">
+            <div class="spread-bg"></div>
+
+            <div class="collage-item polaroid p-left" id="s2-p1">
+                <div class="tape tape-top"></div>
+                <img src="Seif/best 2.jpeg" alt="Mem 1">
+            </div>
+
+            <div class="collage-item polaroid p-center" id="s2-p3">
+                <div class="tape tape-bottom-right"></div>
+                <img src="seif/best.jpeg" alt="Seif 5">
+            </div>
+
+            <div class="collage-item polaroid p-right" id="s2-p2">
+                <div class="tape tape-top-right"></div>
+                <img src="Seif/best 3.jpeg" alt="Mem 2">
+            </div>
+
+            <div class="collage-item sticky-note" id="s2-note">
+                Our best times together ✨
+            </div>
+
+            <div class="collage-item paperclip" id="s2-clip">📎</div>
+
+            <div class="collage-item film-strip" id="s2-film">
+                <div class="film-frame"><img src="Seif/last.jpeg" alt="F1"></div>
+                <div class="film-frame"><img src="Seif/4.jpeg" alt="F2" style="object-position: center 25%;"></div>
+                <div class="film-frame"><img src="Seif/5.jpeg" alt="F3" style="object-position: center 25%;"></div>
+            </div>
+        </section>
+
+        <!-- SECTION 3 — Funny Photos of Her (Playful Scrapbook Page) -->
+        <section class="section section-3" id="section-3">
+            <div class="collage-item polaroid p-large-1" id="s3-p1">
+                <div class="tape tape-corners"></div>
+                <img src="Shaza/funny.jpg" alt="Funny 1">
+                <div class="scribble">Haha 😂</div>
+            </div>
+
+            <div class="collage-item polaroid p-large-2" id="s3-p2">
+                <div class="tape tape-left"></div>
+                <img src="Shaza/funny 2.jpg" alt="Funny 2">
+            </div>
+
+            <div class="collage-item note-card" id="s3-note">
+                <div class="pin">📌</div>
+                lesa msh aref hena haktb eh
+            </div>
+
+            <div class="collage-item heart-sticker with-text" id="s3-heart">
+                Kamala
+            </div>
+            
+            <div class="collage-item star-sticker" id="s3-star1">⭐</div>
+            <div class="collage-item star-sticker" id="s3-star2">✨</div>
+        </section>
+
+        <!-- SECTION 4 — Friends Section (Shaza) -->
+        <section class="section section-4" id="section-4">
+            <div class="collage-item polaroid frame-shaza-1" id="s4-p1">
+                <div class="tape tape-top-left"></div>
+                <img src="shaza/652007947_1659973371695643_169497383901167248_n.jpg" alt="Shaza 1">
+            </div>
+
+            <div class="collage-item polaroid frame-shaza-2" id="s4-p2">
+                <div class="tape tape-bottom-right"></div>
+                <img src="shaza/best.jpg" alt="Shaza 2">
+            </div>
+
+            <div class="collage-item polaroid frame-shaza-3" id="s4-p3">
+                <div class="tape tape-top-right"></div>
+                <img src="shaza/654792883_1451202746620870_4493962161522954723_n.jpg" alt="Shaza 3">
+            </div>
+
+            <div class="collage-item polaroid frame-shaza-4" id="s4-p4">
+                <div class="tape tape-left"></div>
+                <img src="shaza/655626644_933936009225529_2004228333154562883_n.jpg" alt="Shaza 4">
+            </div>
+
+            <div class="collage-item sticky-note pink-note" id="s4-note">
+                Memories with Shaza ❤️
+            </div>
+            
+            <div class="collage-item flower-sticker" id="s4-flower">🌸</div>
+            <div class="collage-item wax-seal" id="s4-seal">S</div>
+            <div class="collage-item paperclip" id="s4-clip">📎</div>
+        </section>
+
+        <!-- SECTION 5 — Surprise Invitation Section -->
+        <section class="section section-5" id="section-5">
+            <div class="confetti-layer" id="s5-confetti"></div>
+
+            <div class="collage-item polaroid-stack" id="s5-stack">
+                <div class="polaroid stack-3"><img src="https://placehold.co/100x120/bbb/555?text=Photo" alt=""></div>
+                <div class="polaroid stack-2"><img src="https://placehold.co/100x120/ccc/666?text=Photo" alt=""></div>
+                <div class="polaroid stack-1"><img src="https://placehold.co/100x120/ddd/777?text=Photo" alt=""></div>
+            </div>
+
+            <div class="collage-item cinema-ticket" id="s5-ticket">
+                <div class="ticket-left">
+                    <div class="ticket-header">
+                        <span class="stars">★★★★★</span>
+                        <span class="cinema-name">SPECIAL CINEMA</span>
+                        <span class="stars">★★★★★</span>
+                    </div>
+                    <div class="ticket-body">
+                        <h2>ADMIT TWO</h2>
+                        <h4 class="movie-title">Movie Night Surprise 🍿</h4>
+                        <div class="ticket-info">
+                            <span>ROW: <br><strong>A</strong></span>
+                            <span>SEAT: <br><strong>1-2</strong></span>
+                            <span>DATE: <br><strong>TONIGHT</strong></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ticket-right">
+                    <div class="stub-text">ADMIT TWO</div>
+                    <div class="barcode-visual"></div>
+                    <div class="ticket-number">No. 082496</div>
+                </div>
+            </div>
+
+            <div class="collage-item tape tape-long" id="s5-tape"></div>
+            <div class="collage-item heart-sticker" id="s5-heart">🍿</div>
+        </section>
+
+        <!-- SECTION 6 — Final Romantic Page -->
+        <section class="section section-6" id="section-6">
+            <div class="collage-item minimal-note" id="s6-note">
+                "Thank you for being in our life."
+            </div>
+            
+            <div class="collage-item pulsing-heart" id="s6-heart">❤️</div>
+            <div class="collage-item flower-stamp" id="s6-stamp">💮</div>
+            
+            <footer class="footer" id="s6-footer">Made with &hearts; by your friends Seif & Shaza</footer>
+        </section>
+
+    </div>
+
+    <!-- Main Logic -->
+    <script src="script.js"></script>
+</body>
+</html>
