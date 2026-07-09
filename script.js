@@ -183,7 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     tl5.to("#s5-stack", { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" })
        .to("#s5-ticket", { opacity: 1, y: 0, rotation: -4, duration: 1, ease: "bounce.out" }, "-=0.4")
-       .to("#s5-tape", { opacity: 1, scale: 1, duration: 0.4 })
+       .to("#s5-tape", { opacity: 1, y: 0, scale: 1, duration: 0.4 })
        .to("#s5-heart", { opacity: 1, y: 0, duration: 0.5, ease: "back.out(2)" });
 
     // Subtle confetti using small elements

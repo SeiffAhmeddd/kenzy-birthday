@@ -819,10 +819,9 @@ body.intro-lock {
 }
 
 #s5-tape {
-    top: 38%;
+    top: -14px;
     left: 50%;
-    transform: translate(-50%, -50%) rotate(-6deg);
-    z-index: 6;
+    transform: translateX(-50%) rotate(-6deg);
 }
 
 #s5-heart {
