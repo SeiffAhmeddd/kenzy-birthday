@@ -18,12 +18,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
 </head>
 <body>
+    <!-- Tap-to-Open Intro Overlay (needed so audio can start with sound) -->
+    <div class="intro-overlay" id="intro-overlay">
+        <div class="intro-heart">💌</div>
+        <p class="intro-title">A gift for Kenzy</p>
+        <p class="intro-tap">tap to open</p>
+    </div>
+
     <!-- Music Player -->
     <div class="music-player" id="music-player">
         <div class="cd-disc">
             <div class="cd-label"></div>
         </div>
-        <audio id="bg-music" loop autoplay>
+        <audio id="bg-music" loop>
             <source src="birthday song.mp3" type="audio/mpeg">
         </audio>
     </div>

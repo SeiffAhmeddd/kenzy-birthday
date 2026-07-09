@@ -6,37 +6,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Setup Audio
     const musicBtn = document.getElementById("music-player");
-    // Attempt true autoplay on load
     const bgMusic = document.getElementById("bg-music");
+    const introOverlay = document.getElementById("intro-overlay");
     let isPlaying = false;
 
-    // Modern Autoplay "Hack": Start muted, then unmute on interaction
-    function playMusic() {
-        if (!isPlaying) {
-            bgMusic.muted = true;
-            bgMusic.play().then(() => {
-                isPlaying = true;
-                gsap.to(".cd-disc", { rotation: 360, repeat: -1, duration: 4, ease: "linear" });
-                console.log("Music playing silently in the background...");
-            }).catch(e => console.log("Still waiting for total interaction..."));
-        }
+    function spinDisc() {
+        gsap.to(".cd-disc", { rotation: 360, repeat: -1, duration: 4, ease: "linear" });
     }
 
-    function unmuteMusic() {
-        if (bgMusic.muted) {
-            bgMusic.muted = false;
-            console.log("Music unmuted via user gesture!");
-        }
+    // Browsers block audio-with-sound until a real user gesture happens.
+    // The intro overlay's tap IS that gesture, so music starts right as the site opens.
+    function startMusicWithSound() {
+        bgMusic.muted = false;
+        bgMusic.play().then(() => {
+            isPlaying = true;
+            spinDisc();
+        }).catch(e => console.log("Playback blocked:", e));
     }
 
-    // Attempt muted autoplay immediately
-    playMusic();
-    
-    // Unmute on ANY subsequent gesture
-    ['click', 'scroll', 'mousedown', 'keydown', 'touchstart'].forEach(type => {
-        window.addEventListener(type, unmuteMusic, { once: true });
-        window.addEventListener(type, playMusic, { once: true });
-    });
+    function dismissIntro() {
+        startMusicWithSound();
+        document.body.classList.remove("intro-lock");
+        introOverlay.classList.add("hidden");
+    }
+
+    document.body.classList.add("intro-lock");
+    introOverlay.addEventListener("click", dismissIntro, { once: true });
+    introOverlay.addEventListener("touchend", dismissIntro, { once: true });
 
     musicBtn.addEventListener("click", () => {
         if (isPlaying) {
