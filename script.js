@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
        .to("#s1-envelope-wrapper", { y: 150, duration: 1, ease: "none" }, "-=0.2")
        .to("#s1-letter", { scale: 1, y: 10, duration: 1.2, ease: "none" }, "-=1")
        // Handwriting appears
-       .to("#s1-text", { text: { value: "[Hena nektbla happybirthday we keda]" }, duration: 1.5, ease: "none" })
+       .to("#s1-text", { text: { value: "Kol sana we anty tayba ya kanuza bnhbk <3" }, duration: 1.5, ease: "none" })
        // Rest of collage fades in
        .to(".section-1 .collage-item", {
            opacity: 1,
